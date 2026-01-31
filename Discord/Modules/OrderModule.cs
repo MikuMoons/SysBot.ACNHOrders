@@ -55,6 +55,14 @@ namespace SysBot.ACNHOrders
                     return;
                 }
 
+                // Check if villagers are awake (5 AM to midnight)
+                var currentHour = Globals.Bot.LastTimeState.Hour;
+                if (currentHour < 5)
+                {
+                    await ReplyAsync($"{Context.User.Mention} - Villagers are asleep right now (it's {currentHour}:00 in-game). Villager orders are only available from 5 AM to midnight. Please try again later or order without a villager.");
+                    return;
+                }
+
                 request = san;
                 var replace = VillagerResources.GetVillager(res);
                 vr = new VillagerRequest(Context.User.Username, replace, 0, GameInfo.Strings.GetVillager(res));
@@ -118,6 +126,14 @@ namespace SysBot.ACNHOrders
                 if (!cfg.AllowVillagerInjection)
                 {
                     await ReplyAsync($"{Context.User.Mention} - Villager injection is currently disabled.");
+                    return;
+                }
+
+                // Check if villagers are awake (5 AM to midnight)
+                var currentHour = Globals.Bot.LastTimeState.Hour;
+                if (currentHour < 5)
+                {
+                    await ReplyAsync($"{Context.User.Mention} - Villagers are asleep right now (it's {currentHour}:00 in-game). Villager orders are only available from 5 AM to midnight. Please try again later or order without a villager.");
                     return;
                 }
 
@@ -277,6 +293,14 @@ namespace SysBot.ACNHOrders
                 if (!cfg.AllowVillagerInjection)
                 {
                     await ReplyAsync($"{Context.User.Mention} - Villager injection is currently disabled.");
+                    return;
+                }
+
+                // Check if villagers are awake (5 AM to midnight)
+                var currentHour = Globals.Bot.LastTimeState.Hour;
+                if (currentHour < 5)
+                {
+                    await ReplyAsync($"{Context.User.Mention} - Villagers are asleep right now (it's {currentHour}:00 in-game). Villager orders are only available from 5 AM to midnight. Please try again later or order without a villager.");
                     return;
                 }
 
