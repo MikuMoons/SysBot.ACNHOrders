@@ -59,7 +59,8 @@ namespace SysBot.ACNHOrders
                 var currentHour = Globals.Bot.LastTimeState.Hour;
                 if (currentHour < 5)
                 {
-                    await ReplyAsync($"{Context.User.Mention} - Villagers are asleep right now (it's {currentHour}:00 in-game). Villager orders are only available from 5 AM to midnight. Please try again later or order without a villager.");
+                    var hoursUntilAwake = 5 - currentHour;
+                    await ReplyAsync($"{Context.User.Mention} - Villagers are asleep right now (it's {currentHour}:00 in-game). They'll be awake in {hoursUntilAwake} hour{(hoursUntilAwake > 1 ? "s" : "")}. Please try again after 5 AM or order without a villager.");
                     return;
                 }
 
@@ -133,7 +134,8 @@ namespace SysBot.ACNHOrders
                 var currentHour = Globals.Bot.LastTimeState.Hour;
                 if (currentHour < 5)
                 {
-                    await ReplyAsync($"{Context.User.Mention} - Villagers are asleep right now (it's {currentHour}:00 in-game). Villager orders are only available from 5 AM to midnight. Please try again later or order without a villager.");
+                    var hoursUntilAwake = 5 - currentHour;
+                    await ReplyAsync($"{Context.User.Mention} - Villagers are asleep right now (it's {currentHour}:00 in-game). They'll be awake in {hoursUntilAwake} hour{(hoursUntilAwake > 1 ? "s" : "")}. Please try again after 5 AM or order without a villager.");
                     return;
                 }
 
@@ -300,7 +302,8 @@ namespace SysBot.ACNHOrders
                 var currentHour = Globals.Bot.LastTimeState.Hour;
                 if (currentHour < 5)
                 {
-                    await ReplyAsync($"{Context.User.Mention} - Villagers are asleep right now (it's {currentHour}:00 in-game). Villager orders are only available from 5 AM to midnight. Please try again later or order without a villager.");
+                    var hoursUntilAwake = 5 - currentHour;
+                    await ReplyAsync($"{Context.User.Mention} - Villagers are asleep right now (it's {currentHour}:00 in-game). They'll be awake in {hoursUntilAwake} hour{(hoursUntilAwake > 1 ? "s" : "")}. Please try again after 5 AM or order without a villager.");
                     return;
                 }
 
